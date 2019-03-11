@@ -63,6 +63,12 @@ public class StrukturOrganisasi extends javax.swing.JFrame {
         panelAll = new javax.swing.JPanel();
         labelAll = new javax.swing.JLabel();
 
+        popUpDasar.setBackground(new java.awt.Color(0, 51, 51));
+        popUpDasar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+
+        jMenuItem1.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/023-teamwork-1.png"))); // NOI18N
         jMenuItem1.setLabel("Depok");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +77,7 @@ public class StrukturOrganisasi extends javax.swing.JFrame {
         });
         popUpDasar.add(jMenuItem1);
 
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jMenuItem2.setLabel("Kalimalang");
         popUpDasar.add(jMenuItem2);
 
@@ -449,8 +456,6 @@ public class StrukturOrganisasi extends javax.swing.JFrame {
     private void panelDasarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDasarMouseExited
         panelDasar.setBackground(new Color(73, 5, 130));
      
-        
-        // TODO add your handling code here:
     }//GEN-LAST:event_panelDasarMouseExited
 
     private void panelDasarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDasarMouseReleased
