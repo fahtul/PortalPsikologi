@@ -6,7 +6,26 @@
 package Frame.StrukturOrganisasi;
 
 import Image.SetImage;
+import Koneksi.koneksi;
+import java.awt.HeadlessException;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.icepdf.ri.common.ComponentKeyBinding;
+import org.icepdf.ri.common.SwingController;
+import org.icepdf.ri.common.SwingViewBuilder;
 
 /**
  *
@@ -21,6 +40,40 @@ public class All extends javax.swing.JFrame {
         initComponents();
           this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+          
+      String sql = "SELECT * FROM struktur where jenis='All'";
+      try {
+        Connection connection = koneksi.getConnection();
+        ResultSet rs;
+        Statement statement = connection.createStatement();
+        rs=statement.executeQuery(sql);
+        String Jenis = "";  
+        String namafile = "";
+        while(rs.next()){                
+            Jenis = rs.getString("jenis");
+            namafile = rs.getString("nama_file");
+//            if(Jenis.equals("All")){
+//                openpdf(namafile);
+//                System.out.println("NOT EMPTY COY");
+//            }
+           
+            
+            } 
+          if(Jenis.equals("")){
+                System.out.println("EMPTY COY");
+                openpdf(namafile);
+            
+         }else{
+                System.out.println("GK BERHASIL");
+                openpdf(namafile);
+            }
+        
+       }
+    catch(Exception e){
+        System.out.println(e);
+    }
+
+
     }
 
     /**
@@ -34,8 +87,10 @@ public class All extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jLabel2 = new javax.swing.JLabel();
+        lblNamaFile = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        jScrollPane = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,20 +105,31 @@ public class All extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(348, 348, 348)
+                .addGap(432, 432, 432)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(435, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/strukturOrganisasiDasarAll.png"))); // NOI18N
-        jScrollPane2.setViewportView(jLabel2);
+        jButton1.setText("Select File");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,21 +137,109 @@ public class All extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1053, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(lblNamaFile, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1493, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNamaFile, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1447, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF Documents", "pdf");
+        chooser.setFileFilter(filter);
+        chooser.showOpenDialog(null);
+        File f  = chooser.getSelectedFile();
+        fileName = f.getAbsolutePath();
+        lblNamaFile.setText(fileName);
+        
+        try{
+            Statement statement = Koneksi.koneksi.getConnection().createStatement();
+            
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        
+      String sql = "SELECT * FROM struktur where jenis = 'All'";
+      try {
+        Connection connection = koneksi.getConnection();
+        ResultSet rs;
+        Statement statement = connection.createStatement();
+        rs=statement.executeQuery(sql);
+        String Jenis="";
+        
+            while(rs.next()){
+            Jenis = rs.getString("jenis");
+            System.out.println(Jenis);
+            }
+            
+            if(Jenis.equals("All") && !lblNamaFile.getText().equals("")){
+            try {
+                System.out.println("ALL BERHASIL");
+             String updateSQL = "UPDATE struktur "
+                + "SET nama_file = ? "
+                + "WHERE jenis='All'";
+             
+            PreparedStatement pst = koneksi.getConnection().prepareStatement(updateSQL);
+            pst.setString(1, lblNamaFile.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Update Berhasil");
+            
+            this.dispose();
+            All all = new All();
+            all.setVisible(true);
+        } catch (SQLException ex) {
+         JOptionPane.showMessageDialog(null, "Pertama  " + ex);
+        }
+        
+        } else if(Jenis.equals("") && !lblNamaFile.getText().equals("")){    
+            System.out.println("ALL BERHASIL NO");
+            String query = "insert into struktur values(?,?)";
+            PreparedStatement pst = koneksi.getConnection().prepareStatement(query);
+            pst.setString(1, "All");
+            pst.setString(2, lblNamaFile.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Data Tersimpan");
+            
+            this.dispose();
+            All all = new All();
+            all.setVisible(true);
+         }else if(lblNamaFile.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Pilih file terlebih dahulu");
+        }
+         
+        
+       }
+    catch(HeadlessException | SQLException e){
+        JOptionPane.showMessageDialog(null, e);
+    }
+    
+    
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,9 +277,39 @@ public class All extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JLabel lblNamaFile;
     // End of variables declaration//GEN-END:variables
+
+byte[] file = null;
+String fileName = null;
+
+
+void openpdf(String file){
+    try{
+        SwingController  control = new SwingController();
+        SwingViewBuilder factory = new SwingViewBuilder(control);
+        JPanel viewerCompntpn1 = factory.buildViewerPanel();
+        ComponentKeyBinding.install(control, viewerCompntpn1);
+        control.getDocumentViewController().setAnnotationCallback(
+                new org.icepdf.ri.common.MyAnnotationCallback(
+                control.getDocumentViewController()));
+                control.openDocument(file);
+                
+        jScrollPane.setViewportView(viewerCompntpn1);
+        
+    }catch(Exception e){
+        
+    }
+}
+
+private void reloadForm(){
+     this.dispose();
+            All all = new All();
+            all.setVisible(true);
+}
 }
