@@ -322,6 +322,9 @@ public class StrukturOrganisasi extends javax.swing.JFrame {
 
         panelAll.setBackground(new java.awt.Color(73, 5, 130));
         panelAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelAllMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelAllMouseEntered(evt);
             }
@@ -337,6 +340,9 @@ public class StrukturOrganisasi extends javax.swing.JFrame {
         labelAll.setForeground(new java.awt.Color(255, 255, 255));
         labelAll.setText("All");
         labelAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelAllMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 labelAllMouseEntered(evt);
             }
@@ -590,6 +596,17 @@ public class StrukturOrganisasi extends javax.swing.JFrame {
     private void panelAllMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAllMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_panelAllMouseReleased
+
+    private void panelAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAllMouseClicked
+          All all = new All();
+          all.setVisible(true);
+    }//GEN-LAST:event_panelAllMouseClicked
+
+    private void labelAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAllMouseClicked
+        All all = new All();
+         
+          all.setVisible(true);
+    }//GEN-LAST:event_labelAllMouseClicked
 
     /**
      * @param args the command line arguments
