@@ -57,82 +57,13 @@ public class JobDeskHome extends javax.swing.JFrame {
         labelUtama2 = new javax.swing.JLabel();
         panelBackground = new javax.swing.JPanel();
 
-        strukturasisten.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
-            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
-                strukturasistenMenuKeyPressed(evt);
-            }
-            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
-            }
-            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
-            }
-        });
-
         koordinator.setText("Koordinator");
-        koordinator.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                koordinatorItemStateChanged(evt);
-            }
-        });
-        koordinator.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
-            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
-                koordinatorMenuKeyPressed(evt);
-            }
-            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
-            }
-            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
-            }
-        });
-        koordinator.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                koordinatorMouseClicked(evt);
-            }
-        });
-        koordinator.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                koordinatorActionPerformed(evt);
-            }
-        });
-        koordinator.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                koordinatorKeyPressed(evt);
-            }
-        });
         strukturasisten.add(koordinator);
 
         sekretaris.setText("Sekretaris");
-        sekretaris.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sekretarisMouseClicked(evt);
-            }
-        });
-        sekretaris.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sekretarisActionPerformed(evt);
-            }
-        });
-        sekretaris.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                sekretarisKeyPressed(evt);
-            }
-        });
         strukturasisten.add(sekretaris);
 
         bendahara.setText("Bendahara");
-        bendahara.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bendaharaMouseClicked(evt);
-            }
-        });
-        bendahara.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bendaharaActionPerformed(evt);
-            }
-        });
-        bendahara.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bendaharaKeyPressed(evt);
-            }
-        });
         strukturasisten.add(bendahara);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -290,9 +221,6 @@ public class JobDeskHome extends javax.swing.JFrame {
 
         panelDasar.setBackground(new java.awt.Color(73, 5, 130));
         panelDasar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelDasarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelDasarMouseEntered(evt);
             }
@@ -308,9 +236,6 @@ public class JobDeskHome extends javax.swing.JFrame {
         labelDasar.setForeground(new java.awt.Color(255, 255, 255));
         labelDasar.setText("Staff Dasar, Menengah, Lanjut ");
         labelDasar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelDasarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 labelDasarMouseEntered(evt);
             }
@@ -338,9 +263,6 @@ public class JobDeskHome extends javax.swing.JFrame {
 
         panelAll.setBackground(new java.awt.Color(73, 5, 130));
         panelAll.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelAllMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelAllMouseEntered(evt);
             }
@@ -356,9 +278,6 @@ public class JobDeskHome extends javax.swing.JFrame {
         labelAll.setForeground(new java.awt.Color(255, 255, 255));
         labelAll.setText("Koordinator Laboratorium");
         labelAll.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelAllMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 labelAllMouseEntered(evt);
             }
@@ -428,9 +347,6 @@ public class JobDeskHome extends javax.swing.JFrame {
 
         panelUtama2.setBackground(new java.awt.Color(73, 5, 130));
         panelUtama2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelUtama2MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelUtama2MouseEntered(evt);
             }
@@ -446,9 +362,6 @@ public class JobDeskHome extends javax.swing.JFrame {
         labelUtama2.setForeground(new java.awt.Color(255, 255, 255));
         labelUtama2.setText("Programmer");
         labelUtama2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelUtama2MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 labelUtama2MouseEntered(evt);
             }
@@ -731,78 +644,6 @@ panelUtama2.setBackground(new Color(73, 5, 130));        // TODO add your handli
         // TODO add your handling code here:
     }//GEN-LAST:event_panelUtama2MouseReleased
 
-    private void panelAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAllMouseClicked
-        pindahFormKoordinatorLab();
-    }//GEN-LAST:event_panelAllMouseClicked
-
-    private void labelAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAllMouseClicked
-    pindahFormKoordinatorLab();
-    }//GEN-LAST:event_labelAllMouseClicked
-
-    private void panelDasarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDasarMouseClicked
-            pindahFormStaffLab();
-    }//GEN-LAST:event_panelDasarMouseClicked
-
-    private void labelDasarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelDasarMouseClicked
-        pindahFormStaffLab();
-    }//GEN-LAST:event_labelDasarMouseClicked
-
-    private void panelUtama2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelUtama2MouseClicked
-        pindahFormProgrammer();
-    }//GEN-LAST:event_panelUtama2MouseClicked
-
-    private void labelUtama2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelUtama2MouseClicked
-            pindahFormProgrammer();
-    }//GEN-LAST:event_labelUtama2MouseClicked
-
-    private void koordinatorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_koordinatorKeyPressed
-
-    }//GEN-LAST:event_koordinatorKeyPressed
-
-    private void sekretarisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sekretarisKeyPressed
-
-    }//GEN-LAST:event_sekretarisKeyPressed
-
-    private void bendaharaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bendaharaKeyPressed
-
-    }//GEN-LAST:event_bendaharaKeyPressed
-
-    private void koordinatorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_koordinatorMouseClicked
-           
-    }//GEN-LAST:event_koordinatorMouseClicked
-
-    private void sekretarisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sekretarisMouseClicked
-           
-    }//GEN-LAST:event_sekretarisMouseClicked
-
-    private void bendaharaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bendaharaMouseClicked
-           
-    }//GEN-LAST:event_bendaharaMouseClicked
-
-    private void koordinatorMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_koordinatorMenuKeyPressed
-           
-    }//GEN-LAST:event_koordinatorMenuKeyPressed
-
-    private void koordinatorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_koordinatorItemStateChanged
-           
-    }//GEN-LAST:event_koordinatorItemStateChanged
-
-    private void strukturasistenMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_strukturasistenMenuKeyPressed
-        
-    }//GEN-LAST:event_strukturasistenMenuKeyPressed
-
-    private void koordinatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_koordinatorActionPerformed
-        pindahKoorAsisten();
-    }//GEN-LAST:event_koordinatorActionPerformed
-
-    private void sekretarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sekretarisActionPerformed
-        pindahSekretarisAsisten();
-    }//GEN-LAST:event_sekretarisActionPerformed
-
-    private void bendaharaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bendaharaActionPerformed
-        pindahBendaharaAsisten();
-    }//GEN-LAST:event_bendaharaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -862,37 +703,4 @@ panelUtama2.setBackground(new Color(73, 5, 130));        // TODO add your handli
     private javax.swing.JMenuItem sekretaris;
     private javax.swing.JPopupMenu strukturasisten;
     // End of variables declaration//GEN-END:variables
-
-    void pindahFormKoordinatorLab(){
-        KoordinatorLaboratorium kl = new KoordinatorLaboratorium();
-        kl.setVisible(true);
-    }
-    
-    void pindahFormStaffLab(){
-        StaffLab sl = new StaffLab();
-        sl.setVisible(true);
-    }
-    
-    void pindahFormProgrammer(){
-        Programmer pr = new Programmer();
-        pr.setVisible(true);
-    }
-    
-    void pindahKoorAsisten(){
-        KoordinatorAsisten ka = new KoordinatorAsisten();
-        ka.setVisible(true);
-    }
-    
-    void pindahBendaharaAsisten(){
-        BendaharaAsisten ba= new BendaharaAsisten();
-        ba.setVisible(true);
-    }
-    
-    void pindahSekretarisAsisten(){
-        SekretarisAsisten sa = new SekretarisAsisten();
-        sa.setVisible(true);
-    }
-    
-    
-    
 }

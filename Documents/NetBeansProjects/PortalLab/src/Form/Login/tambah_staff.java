@@ -5,33 +5,17 @@
  */
 package Form.Login;
 
-import static Form.Login.Login.encrypt;
-import Koneksi.koneksi;
-import Utils.Common;
-import Utils.ModelUser;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Baladika
  */
 public class tambah_staff extends javax.swing.JFrame {
 
-        String username;
-        String password,u,p,ep,changep,role;
     /**
      * Creates new form tambah_staff
      */
     public tambah_staff() {
         initComponents();
-       
     }
 
     /**
@@ -45,11 +29,6 @@ public class tambah_staff extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        btnRegister = new javax.swing.JButton();
-        cbRole = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,66 +43,27 @@ public class tambah_staff extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-
-        cbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Programmer", "Staff", "Asisten" }));
-        cbRole.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbRoleActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                            .addComponent(txtUsername)
-                            .addComponent(txtPassword)
-                            .addComponent(jTextField1)
-                            .addComponent(cbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(110, 110, 110))))
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(72, 72, 72))
             .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(112, 112, 112)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(124, 124, 124)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addComponent(btnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(422, 361));
@@ -132,40 +72,10 @@ public class tambah_staff extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Login log = null;
-        log = new Form.Login.Login();
+        login log = new login();
         log.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        u = txtUsername.getText();
-        p = txtPassword.getText();
-        role = cbRole.getSelectedItem().toString();
-        
-        
-        try{
-            ep = ""+encrypt(p, "SHA-1", "UTF-16").toString();
-            
-        }       catch (Exception ex) {
-                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                }
-        
-//        searchUser(u, ep);
-        
-        register(u, ep, convertRole(role));
-        System.out.println(ep);
-        
-        
-    }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void cbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRoleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbRoleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,51 +113,7 @@ public class tambah_staff extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JComboBox<String> cbRole;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-
-    public void register(String username,String password,int role){
-    try{
-        //set koneksi
-        Connection connection = koneksi.getConnection();
-        ResultSet rs;
-        Statement statement = connection.createStatement();
-        
- String query = " insert into user (username, password, role)"
-        + " values (?, ?, ?)";
-
-      // create the mysql insert preparedstatement
-      PreparedStatement preparedStmt = connection.prepareStatement(query);
-      preparedStmt.setString (1, username);
-      preparedStmt.setString (2, password);
-      preparedStmt.setInt(3, role);
-      // execute the preparedstatement
-      preparedStmt.execute();
-      
-      connection.close();
-            
-        }
-        catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-    
-    public Integer convertRole(String role){
-        int roleInt;
-        if (role.equals("Programmer")) {
-            roleInt = 1;
-        }else if (role.equals("Staff")) {
-            roleInt = 2;
-        }else{
-            roleInt = 3;
-        }
-        
-        return roleInt;
-    }
 }

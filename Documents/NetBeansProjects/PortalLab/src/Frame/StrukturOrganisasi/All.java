@@ -338,13 +338,14 @@ void openpdf(String file){
         JPanel viewerCompntpn1 = factory.buildViewerPanel();
         ComponentKeyBinding.install(control, viewerCompntpn1);
         control.getDocumentViewController().setAnnotationCallback(
-        new org.icepdf.ri.common.MyAnnotationCallback(
-        control.getDocumentViewController()));
-        control.openDocument(file);
+                new org.icepdf.ri.common.MyAnnotationCallback(
+                control.getDocumentViewController()));
+                control.openDocument(file);
+                
         jScrollPane.setViewportView(viewerCompntpn1);
         
     }catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
+        
     }
 }
 
