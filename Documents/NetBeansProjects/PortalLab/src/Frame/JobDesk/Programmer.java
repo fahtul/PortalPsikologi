@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frame.StrukturOrganisasi;
-
-import Image.SetImage;
+package Frame.JobDesk;
 import Koneksi.koneksi;
 import java.awt.HeadlessException;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -26,22 +20,21 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import org.icepdf.ri.common.ComponentKeyBinding;
 import org.icepdf.ri.common.SwingController;
 import org.icepdf.ri.common.SwingViewBuilder;
-
 /**
  *
  * @author Fahtul Rahman
  */
-public class All extends javax.swing.JFrame {
+public class Programmer extends javax.swing.JFrame {
 
     /**
-     * Creates new form All
+     * Creates new form Programmer
      */
-    public All() {
+    public Programmer() {
         initComponents();
-          this.setLocationRelativeTo(null);
+            this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
           
-      String sql = "SELECT * FROM struktur where jenis='All'";
+      String sql = "SELECT * FROM jobdesk where jenis='programmer'";
       try {
         Connection connection = koneksi.getConnection();
         ResultSet rs;
@@ -62,7 +55,7 @@ public class All extends javax.swing.JFrame {
           if(Jenis.equals("")){
                 System.out.println("EMPTY COY");
                 openpdf(namafile);
-            
+                
          }else{
                 System.out.println("GK BERHASIL");
                 openpdf(namafile);
@@ -72,8 +65,6 @@ public class All extends javax.swing.JFrame {
     catch(Exception e){
         System.out.println(e);
     }
-
-
     }
 
     /**
@@ -111,7 +102,7 @@ public class All extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arno Pro Smbd", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Struktur Organisasi Laboratorium Psikologi");
+        jLabel2.setText("                                            Jobdesk Programmer");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 72)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,9 +119,9 @@ public class All extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(195, 195, 195)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,16 +130,13 @@ public class All extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(45, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(35, 35, 35))
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
         );
 
         jButton1.setText("Select File");
@@ -176,7 +164,7 @@ public class All extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(699, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane)
         );
@@ -190,11 +178,19 @@ public class All extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1441, Short.MAX_VALUE))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        this.setState(this.ICONIFIED);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -204,82 +200,65 @@ public class All extends javax.swing.JFrame {
         File f  = chooser.getSelectedFile();
         fileName = f.getAbsolutePath();
         lblNamaFile.setText(fileName);
-        
+
         try{
             Statement statement = Koneksi.koneksi.getConnection().createStatement();
-            
+
         }catch(Exception e){
-            
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        
-      String sql = "SELECT * FROM struktur where jenis = 'All'";
-      try {
-        Connection connection = koneksi.getConnection();
-        ResultSet rs;
-        Statement statement = connection.createStatement();
-        rs=statement.executeQuery(sql);
-        String Jenis="";
-        
+
+        String sql = "SELECT * FROM jobdesk where jenis = 'programmer'";
+        try {
+            Connection connection = koneksi.getConnection();
+            ResultSet rs;
+            Statement statement = connection.createStatement();
+            rs=statement.executeQuery(sql);
+            String Jenis="";
+
             while(rs.next()){
-            Jenis = rs.getString("jenis");
-            System.out.println(Jenis);
+                Jenis = rs.getString("jenis");
+                System.out.println(Jenis);
             }
-            
-            if(Jenis.equals("All") && !lblNamaFile.getText().equals("")){
-            try {
-                System.out.println("ALL BERHASIL");
-             String updateSQL = "UPDATE struktur "
-                + "SET nama_file = ? "
-                + "WHERE jenis='All'";
-             
-            PreparedStatement pst = koneksi.getConnection().prepareStatement(updateSQL);
-            pst.setString(1, lblNamaFile.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Update Berhasil");
-            
-            this.dispose();
-            All all = new All();
-            all.setVisible(true);
-        } catch (SQLException ex) {
-         JOptionPane.showMessageDialog(null, "Pertama  " + ex);
+
+            if(Jenis.equals("programmer") && !lblNamaFile.getText().equals("")){
+                try {
+                    System.out.println("ALL BERHASIL");
+                    String updateSQL = "UPDATE jobdesk "
+                    + "SET nama_file = ? "
+                    + "WHERE jenis='programmer'";
+
+                    PreparedStatement pst = koneksi.getConnection().prepareStatement(updateSQL);
+                    pst.setString(1, lblNamaFile.getText());
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Update Berhasil");
+
+                    reloadForm();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Pertama  " + ex);
+                }
+
+            } else if(Jenis.equals("") && !lblNamaFile.getText().equals("")){
+                String query = "insert into jobdesk values(?,?)";
+                PreparedStatement pst = koneksi.getConnection().prepareStatement(query);
+                pst.setString(1, "programmer");
+                pst.setString(2, lblNamaFile.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Data Tersimpan");
+
+                reloadForm();
+            }else if(lblNamaFile.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Pilih file terlebih dahulu");
+            }
+
         }
-        
-        } else if(Jenis.equals("") && !lblNamaFile.getText().equals("")){    
-            System.out.println("ALL BERHASIL NO");
-            String query = "insert into struktur values(?,?)";
-            PreparedStatement pst = koneksi.getConnection().prepareStatement(query);
-            pst.setString(1, "All");
-            pst.setString(2, lblNamaFile.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Data Tersimpan");
-            
-            this.dispose();
-            All all = new All();
-            all.setVisible(true);
-         }else if(lblNamaFile.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Pilih file terlebih dahulu");
+        catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
         }
-         
-        
-       }
-    catch(HeadlessException | SQLException e){
-        JOptionPane.showMessageDialog(null, e);
-    }
-    
-    
-        
     }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-    this.setState(this.ICONIFIED);
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        this.dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -298,20 +277,20 @@ public class All extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(All.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Programmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(All.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Programmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(All.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Programmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(All.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Programmer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new All().setVisible(true);
+                new Programmer().setVisible(true);
             }
         });
     }
@@ -326,7 +305,6 @@ public class All extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JLabel lblNamaFile;
     // End of variables declaration//GEN-END:variables
-
 byte[] file = null;
 String fileName = null;
 
@@ -338,19 +316,21 @@ void openpdf(String file){
         JPanel viewerCompntpn1 = factory.buildViewerPanel();
         ComponentKeyBinding.install(control, viewerCompntpn1);
         control.getDocumentViewController().setAnnotationCallback(
-        new org.icepdf.ri.common.MyAnnotationCallback(
-        control.getDocumentViewController()));
-        control.openDocument(file);
+                new org.icepdf.ri.common.MyAnnotationCallback(
+                control.getDocumentViewController()));
+                control.openDocument(file);
+                
         jScrollPane.setViewportView(viewerCompntpn1);
         
     }catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
+        
     }
 }
 
 private void reloadForm(){
      this.dispose();
-            All all = new All();
-            all.setVisible(true);
+     Programmer programmer = new Programmer();
+     programmer.setVisible(true);
 }
+
 }

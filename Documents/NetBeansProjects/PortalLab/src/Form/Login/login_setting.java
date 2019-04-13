@@ -5,6 +5,7 @@
  */
 package Form.Login;
 
+import Utils.Common;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -20,6 +21,7 @@ public class login_setting extends javax.swing.JFrame {
      */
     public login_setting() {
         initComponents();
+        System.out.println(Common.currentUser.getUser());
     }
 
     /**

@@ -5,6 +5,8 @@
  */
 package Form.Login;
 
+import Utils.Common;
+
 /**
  *
  * @author Baladika
@@ -16,6 +18,7 @@ public class tambah_struk extends javax.swing.JFrame {
      */
     public tambah_struk() {
         initComponents();
+        System.out.println(Common.currentUser.getUser());
     }
 
     /**
@@ -72,7 +75,7 @@ public class tambah_struk extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        login log = new login();
+        login_setting log = new login_setting();
         log.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
